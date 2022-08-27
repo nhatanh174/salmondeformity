@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Salmon Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Raleway", sans-serif
+        }
+        
+        body,
+        html {
+            height: 100%;
+            line-height: 1.8;
+        }
+        /* Full height image header */
+        
+        .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("/w3images/mac.jpg");
+            min-height: 100%;
+        }
+        
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" style="padding-left: 10px;" id="myNavbar">
+            <img src="static/logo.jpeg" style="width: 5%;">
+            <b style="text-align: center;"> TRƯỜNG CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG - ĐẠI HỌC BÁCH KHOA HÀ NỘI</b>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+                <a href="#about" class="w3-bar-item w3-button">HOME</a>
+                <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Upload Section -->
+    <div class="w3-container" style="padding-top:80px" id="team">
+        <h3 class="w3-center">Salmon Deformity Detection Project</h3>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit">
+        </form>
+    </div>
+
+
+
+    <div class="w3-container" id="all" >
+        <!-- Upload Section -->
+        <div class="w3-container" style="padding:20px 16px" id="main">
+            <div class="w3-row-padding w3-center " style="padding-bottom:20px">
+                <div class="w3-third w3-container w3-margin-bottom">
+                    <img id="img_original" src="static/4_all.jpg" style="width: 100%;">
+                    <p> Input Image </p>
+                </div>
+                <div class="w3-twothird w3-container w3-margin-bottom w3-margin-top ">
+                    <img id="img_body" src="static/4.jpg" style="width: 100%;">
+                    <p> Vertebra Detection </p>
+                </div>
+            </div>
+        </div>
+        <div class="w3-container" style="padding:20px 16px" id="region_split">
+            <div class="w3-row-padding w3-center">
+                <h3 class="w3-center">Regions </h3>
+                
+                <div class="w3-quarter w3-container w3-margin-bottom">
+                    <img id="region_crop3" src="static/4_4.jpg" style="width: 200px;height: 450px;">
+                    <p><a href="#region4">Region 4</a></p>
+                </div>
+                <div class="w3-quarter w3-container w3-margin-bottom">
+                    <img id="region_crop2" src="static/4_3.jpg" style="width: 350px;height: 450px;">
+                    <p><a href="#region3">Region 3</a></p>
+                </div>
+
+                <div class="w3-quarter w3-container w3-margin-bottom">
+                    <img id="region_crop1" src="static/4_2.jpg" style="width: 350px;height: 450px;">
+                    <p><a href="#region2">Region 2</a></p>
+                </div>
+
+                <div class="w3-quarter w3-container w3-margin-bottom">
+                    <img id="region_crop0" src="static/4_1.jpg" style="width: 150px;height: 450px;">
+                    <p><a href="#region1">Region 1</a></p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="w3-container w3-center" style="padding:80px 16px" id="region1">
+            <h3 class="w3-center">Region 1</h3>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img id="region_crop0" src="static/4_1.jpg" style="width: 150px;height: 450px;">
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img id="plot_cobb0" src="static/plot.png" style="width: 100%;">
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <p id="cobb0"></p>
+            </div>
+        </div>
+        <div class="w3-container w3-center" style="padding:80px 16px" id="region2">
+            <h3 class="w3-center">Region 2</h3>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img id="region_crop1" src="static/4_1.jpg" style="width: 300px;height: 450px;">
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img id="plot_cobb1" src="static/plot.png" style="width: 100%;">
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <p id="cobb1"></p>
+            </div>
+        </div>
+
+        <div class="w3-container w3-center" style="padding:80px 16px" id="region3">
+            <h3 class="w3-center">Region 3</h3>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img id="region_crop2" src="static/4_1.jpg" style="width: 300px;height: 450px;">
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img id="plot_cobb2" src="static/plot.png" style="width: 100%;">
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <p id="cobb2"></p>
+            </div>
+        </div>
+
+        <div class="w3-container w3-center" style="padding:80px 16px" id="region4">
+            <h3 class="w3-center">Region 4</h3>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img id="region_crop3" src="static/4_1.jpg" style="width: 200px;height: 450px;">
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img id="plot_cobb3" src="static/plot.png" style="width: 100%;">
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <p id="cobb3"></p>
+
+
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" charset="utf-8">
+    const data = {{data_json|tojson|safe}};
+    console.log(data);
+    if (data != null) {
+        console.log("running");
+        let img_original_b64 = data["original"];
+        const image_ext = "jpg";
+        let img_body_b64= data["body"];
+        let img_regions_b64 = data["regions"];
+        let plot_cobbs_b64 = data["plot_cobbs"];
+        let cobbs = data["cobbs"];
+
+        let originalElement = document.querySelector("#img_original");
+        originalElement.src = 'data:image/' + image_ext + ';base64,' + img_original_b64;
+        
+        let bodylement = document.querySelector("#img_body");
+        bodylement.src = 'data:image/' + image_ext + ';base64,' + img_body_b64;
+
+        for (var i = 0; i < 4; i++) {
+            let regioncropElement = document.querySelectorAll('[id=region_crop'+i.toString()+']');
+            let plotcobbElement = document.querySelectorAll('[id=plot_cobb'+i.toString()+']');
+            let cobbElement = document.querySelectorAll('[id=cobb'+i.toString()+']');
+
+            for (var j=0;j <regioncropElement.length ;j++){
+                regioncropElement[j].src = 'data:image/' + image_ext + ';base64,' + img_regions_b64[i];
+            }
+            for (var j=0;j<plotcobbElement.length; j++){
+                plotcobbElement[j].src = 'data:image/' + image_ext + ';base64,' + plot_cobbs_b64[i];
+            }
+            for (var j=0;j<cobbElement.length; j++){
+                var cobb_angle = Math.round(cobbs[i]);
+                var severity_lks = 0;
+                if (cobb_angle <= 5)
+                {
+                    severity_lks = 0;
+                }else if(cobb_angle >5 && cobb_angle <=20)
+                {   
+                    severity_lks = 1;
+                }else if(cobb_angle >20 && cobb_angle <=35)
+                {
+                    severity_lks = 2;
+                } else {
+                    severity_lks=3;
+                }
+                cobbElement[j].innerHTML= "Cobb Angle : "+ cobb_angle.toString()+"</br>LKS Severity: "+severity_lks.toString();
+            }
+        }        
+
+    }else{
+        var div_all = document.getElementById('all');
+        div_all.style.visibility = 'hidden';
+    }
+        
+</script>
+</body>
+
+</html>
